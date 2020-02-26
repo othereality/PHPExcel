@@ -62,9 +62,9 @@ class PHPExcel_Calculation
     //    Function (allow for the old @ symbol that could be used to prefix a function, but we'll ignore it)
     const CALCULATION_REGEXP_FUNCTION    = '@?([A-Z][A-Z0-9\.]*)[\s]*\(';
     //    Cell reference (cell or range of cells, with or without a sheet reference)
-    const CALCULATION_REGEXP_CELLREF    = CALCULATION_REGEXP_CELLREF;
+    const CALCULATION_REGEXP_CELLREF    = 'CALCULATION_REGEXP_CELLREF';
     //    Named Range of cells
-    const CALCULATION_REGEXP_NAMEDRANGE    = CALCULATION_REGEXP_NAMEDRANGE;
+    const CALCULATION_REGEXP_NAMEDRANGE    = 'CALCULATION_REGEXP_NAMEDRANGE';
     //    Error
     const CALCULATION_REGEXP_ERROR        = '\#[A-Z][A-Z0_\/]*[!\?]?';
 
@@ -2669,11 +2669,11 @@ class PHPExcel_Calculation
         //    Basic validation that this is indeed a formula
         //    We return an empty array if not
         $formula = trim($formula);
-        if ((!isset($formula{0})) || ($formula{0} != '=')) {
+        if ((!isset($formula[0])) || ($formula[0] != '=')) {
             return array();
         }
         $formula = ltrim(substr($formula, 1));
-        if (!isset($formula{0})) {
+        if (!isset($formula[0])) {
             return array();
         }
 
