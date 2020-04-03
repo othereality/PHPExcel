@@ -1063,7 +1063,7 @@ class PHPExcel_Writer_Excel5_Parser
 
             if ($this->match($token) != '') {
                 //if ($i < strlen($this->formula) - 1) {
-                //    $this->lookAhead = $this->formula{$i+1};
+                //    $this->lookAhead = $this->formula[$i+1];
                 //}
                 $this->currentCharacter = $i + 1;
                 $this->currentToken = $token;
